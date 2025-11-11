@@ -1,0 +1,38 @@
+{
+    "data": {
+        "dataset": "PEMS08FLOW",
+        "num_nodes": 170,
+        "history_seq_len": 12,
+        "future_seq_len": 12,
+        "tod": true,
+        "dow": false,
+        "val_ratio": 0.2,
+        "test_ratio": 0.2,
+        "normalizer": "std",
+        "column_wise": false
+    },
+    "model": {
+        "arch": "AGCRN",
+        "input_dim": 1,
+        "output_dim": 1,
+        "num_layers": 1,
+        "rnn_units": 64,
+        "att_dim": 32,
+        "cheb_k": 2
+    },
+    "train": {
+        "loss": "mae",
+        "batch_size": 512,
+        "rounds": 200,
+        "epochs": 1,
+        "lr": 0.003,
+        "lr_decay": true,
+        "lr_decay_rate": 0.3,
+        "lr_decay_step": "5,20,40,70",
+        "early_stop": false,
+        "early_stop_patience": 15,
+        "grad_norm": false,
+        "max_grad_norm": 5,
+        "epsilon": 1e-08
+    }
+}
